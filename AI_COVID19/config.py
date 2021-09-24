@@ -11,12 +11,12 @@ path_param_set = {'local': {'input_path': {'dataset': 'E:\\Dataset\\COVID19\\Cov
                              'output_path': {'log': 'E:\\Dataset\\COVID19\\log',
                                              'prep': 'E:\\Dataset\\COVID19\\%s' % path_title['local'][0],
                                              'train': 'E:\\Dataset\\COVID19\\%s' % path_title['local'][1]}},
-                  'server': {'input_path': {'dataset': '/data/jjh/MedicalDataset/COVID19/Covid_pneumonia',
-                                            'prep': '/data/jjh/MedicalDataset/COVID19/%s/org' % path_title['server'][0],
-                                            'train': '/data/jjh/MedicalDataset/COVID19/%s/prep' % path_title['server'][0]},
-                             'output_path': {'log': '/data/jjh/MedicalDataset/COVID19/log',
-                                             'prep': '/data/jjh/MedicalDataset/COVID19/%s' % path_title['server'][0],
-                                             'train': '/data/jjh/MedicalDataset/COVID19/%s' % path_title['server'][1]}}}
+                  'server': {'input_path': {'dataset': '/home/jpulsar/Dataset/COVID19/raw_data',
+                                            'prep': '/home/jpulsar/Dataset/COVID19/%s/org' % path_title['server'][0],
+                                            'train': '/home/jpulsar/Dataset/COVID19/%s/prep' % path_title['server'][0]},
+                             'output_path': {'log': '/home/jpulsar/Dataset/COVID19/log',
+                                             'prep': '/home/jpulsar/Dataset/COVID19/%s' % path_title['server'][0],
+                                             'train': '/home/jpulsar/Dataset/COVID19/%s' % path_title['server'][1]}}}
 
 
 prep_param_set = {'npz_convert': {'class_type': '4cls',
