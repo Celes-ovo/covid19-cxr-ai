@@ -28,24 +28,22 @@ class NpzConverter:
         # All Dataset Loading
         logger.info('Dataset Category = %s' % os.listdir(input_path))
         if self.class_type == '4cls':
-            cvd_path_bora = daio.file_path_reader(os.path.join(input_path, 'Covid19_boramae'), self.data_limit)
-            cvd_path_cvdx = daio.file_path_reader(os.path.join(input_path, 'Covid19_covidx'), self.data_limit)
-            bac_path_kag = daio.file_path_reader(os.path.join(input_path, 'Bacterial_Pneumonia_kaggle'),
+            cvd_path = daio.file_path_reader(os.path.join(input_path, 'covid'), self.data_limit)
+            bac_path = daio.file_path_reader(os.path.join(input_path, 'bacteria'),
                                                  self.data_limit)
-            vir_path_kag = daio.file_path_reader(os.path.join(input_path, 'Viral_Pneumonia_kaggle'), self.data_limit)
-            nor_path_kag = daio.file_path_reader(os.path.join(input_path, 'Normal_kaggle'), self.data_limit)
-        logger.info(' - COVID Patient Number = %s' % (len(cvd_path_bora) + len(cvd_path_cvdx)))
-        logger.info(' - Bacterial Pneumonia Patient Number = %s' % len(bac_path_kag))
-        logger.info(' - Viral Pneumonia Patient Number = %s' % len(vir_path_kag))
-        logger.info(' - Normal Patient Number = %s' % len(nor_path_kag))
+            vir_path = daio.file_path_reader(os.path.join(input_path, 'virus'), self.data_limit)
+            nor_path = daio.file_path_reader(os.path.join(input_path, 'covid'), self.data_limit)
+        logger.info(' - COVID Patient Number = %s' % (len(cvd_path)))
+        logger.info(' - Bacterial Pneumonia Patient Number = %s' % len(bac_path))
+        logger.info(' - Viral Pneumonia Patient Number = %s' % len(vir_path))
+        logger.info(' - Normal Patient Number = %s' % len(nor_path))
 
         # All Dataset data Build
         if self.class_type == '4cls':
-            self.npz_builder(cvd_path_bora, 'Boramae', 'Covid19', output_path, title, logger, self.patient_list)
-            self.npz_builder(cvd_path_cvdx, 'Covidx', 'Covid19', output_path, title, logger, self.patient_list)
-            self.npz_builder(bac_path_kag, 'Kaggle', 'Bacterial', output_path, title, logger, self.patient_list)
-            self.npz_builder(vir_path_kag, 'Kaggle', 'Viral', output_path, title, logger, self.patient_list)
-            self.npz_builder(nor_path_kag, 'Kaggle', 'Normal', output_path, title, logger, self.patient_list)
+            self.npz_builder(cvd_path, 'CovidX', 'Covid19', output_path, title, logger, self.patient_list)
+            self.npz_builder(bac_path, 'Kaggle', 'Bacterial', output_path, title, logger, self.patient_list)
+            self.npz_builder(vir_path, 'Kaggle', 'Viral', output_path, title, logger, self.patient_list)
+            self.npz_builder(nor_path, 'CovidX', 'Normal', output_path, title, logger, self.patient_list)
 
 
         # Result Log

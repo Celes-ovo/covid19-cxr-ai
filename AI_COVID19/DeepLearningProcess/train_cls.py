@@ -3,7 +3,6 @@ import AI_COVID19.ImageProcess.SubModules.DataIO as daio   # 데어터 불러오
 import AI_COVID19.DeepLearningProcess.SubModules.TensorIO as tsio   # 텐서 처리 관련 모듈
 import AI_COVID19.DeepLearningProcess.SubModules.ResultFunction as resf   # 결과 저정 관련 모듈
 import AI_COVID19.DeepLearningProcess.NeuralNetwork.VGGModel as vggm   # VGG 신경망 모델
-import AI_COVID19.DeepLearningProcess.NeuralNetwork.ResNetModel as resm   # ResNet 신경망 모델
 
 
 """

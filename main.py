@@ -26,7 +26,4 @@ if __name__ == '__main__':
     proc_train(conf.train_param_set['cls_vgg'], conf.network_param_set['vgg'])(path['input_path']['train'],
                                                                                path['output_path']['train'],
                                                                                'VGG19_1', logger_ai)
-    proc_train(conf.train_param_set['cls_res'], conf.network_param_set['resnet'])(path['input_path']['train'],
-                                                                                  path['output_path']['train'],
-                                                                                  'ResNet152', logger_ai)
-
+    
