@@ -29,8 +29,7 @@ class NpzConverter:
         logger.info('Dataset Category = %s' % os.listdir(input_path))
         if self.class_type == '4cls':
             cvd_path = daio.file_path_reader(os.path.join(input_path, 'covid'), self.data_limit)
-            bac_path = daio.file_path_reader(os.path.join(input_path, 'bacteria'),
-                                                 self.data_limit)
+            bac_path = daio.file_path_reader(os.path.join(input_path, 'bacteria'), self.data_limit)
             vir_path = daio.file_path_reader(os.path.join(input_path, 'virus'), self.data_limit)
             nor_path = daio.file_path_reader(os.path.join(input_path, 'covid'), self.data_limit)
         logger.info(' - COVID Patient Number = %s' % (len(cvd_path)))
