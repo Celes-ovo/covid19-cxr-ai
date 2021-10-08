@@ -14,12 +14,12 @@ path_param_set = {'local': {'input_path': {'dataset': os.path.join(main_path['lo
                              'output_path': {'log': os.path.join(main_path['local'], 'log'),
                                              'prep': os.path.join(main_path['local'], '%s' % path_title['local'][0]),
                                              'train': os.path.join(main_path['local'], '%s' % path_title['local'][1])}},
-                  'server': {'input_path': {'dataset': '/home/jpulsar/Dataset/COVID19/new_data',
-                                            'prep': '/home/jpulsar/Dataset/COVID19/%s/org' % path_title['server'][0],
-                                            'train': '/home/jpulsar/Dataset/COVID19/%s/prep' % path_title['server'][0]},
-                             'output_path': {'log': '/home/jpulsar/Dataset/COVID19/log',
-                                             'prep': '/home/jpulsar/Dataset/COVID19/%s' % path_title['server'][0],
-                                             'train': '/home/jpulsar/Dataset/COVID19/%s' % path_title['server'][1]}}}
+                  'server': {'input_path': {'dataset': os.path.join(main_path['server'], 'new_data'),
+                                           'prep': os.path.join(main_path['server'], '%s\\org' % path_title['server'][0]),
+                                           'train': os.path.join(main_path['server'], '%s\\prep' % path_title['server'][0])},
+                             'output_path': {'log': os.path.join(main_path['server'], 'log'),
+                                             'prep': os.path.join(main_path['server'], '%s' % path_title['server'][0]),
+                                             'train': os.path.join(main_path['server'], '%s' % path_title['server'][1])}}}
 
 
 prep_param_set = {'npz_convert': {'class_type': '4cls',
