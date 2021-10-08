@@ -289,8 +289,6 @@ class TrainCLS:
         if array_dim == '2d':
             if model_name[:3] == 'VGG':
                 model = vggm.VGG(network_params)(model_name, array_dim)
-            elif model_name[:3] == 'Res':
-                model = resm.ResNet(network_params)(model_name, array_dim)
             else:
                 print('\n !ERROR! Please Insert Correct Model Name (VGG, ResNet, etc..) \n')
         return model
