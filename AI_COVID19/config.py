@@ -29,14 +29,14 @@ prep_param_set = {'npz_convert': {'class_type': '4cls',
                   'pre_process': {'data_mode': 'train',
                                   'data_limit': None,
                                   'step_list': [1,2,3,4,5],
-                                  'Resize_param': {'size': [256, 256], 'mode': '2d'},
-                                  'Adap_param': {'clip': 0.01},
+                                  'Resize_param': {'size': [256, 256], 'mode': '2d'}, # Resizing size 크기 조절 (ex. [128, 128])
+                                  'Adap_param': {'clip': 0.01}, # Adaptive equalization 기법 파라미터 0~1
                                   'fig_mode': ['png'],
                                   'fig_sample': 0.2}} # 저장할 png 이미지 비율 (0~1)
 
 train_param_set = {'cls_vgg': {'train_mode': 'train',
                                'data_limit': None,
-                               'model_name': 'VGG19', # VGG16, VGG19 중 선택
+                               'model_name': 'VGG19', # VGG16, VGG19, VGGFree 중 선택 (VGGFree: 블록 수와 레이어수 직접 조정)
                                'step_list': [1,2,3,4,5],
                                'gpu_vision': '0', # nvida-smi에서 GPU 수 확인 (ex. '0,1,2')
                                'datagen': kimg.ImageDataGenerator(rotation_range=20,
@@ -60,7 +60,14 @@ train_param_set = {'cls_vgg': {'train_mode': 'train',
                                                'optimizer': optimizers.Adam(lr=1e-4), # optimizer
                                                'metric': ['accuracy']},
                                'Step4_param': {'batch': 32, # Bacth
-                                               'epoch': 50}, # Epoch 수
+                                               'epoch': 50, # Epoch 수
+                                               'erl_stop_mon': 'val_accuracy', # Early stopping monitor 
+                                               'erl_stop_mode': 'max', # Early stopping mode
+                                               'erl_stop_pat': 20, # Early stopping patience 
+                                               'redLR_mon': 'val_loss', # Reduce learning rate monitor
+                                               'redLR_fac': 0.1, # Reduce learning rate facter
+                                               'redLR_mode': 'min', # Reduce learning rate mode
+                                               'redLR_pat': 10}, # Reduce learning rate patience  
                                'Step5_param': {'pos_id1': {'name': 'Covid19',
                                                           'idx': 0},
                                                'pos_id2': {'name': 'Normal', # 'Bacterial', 'Viral', 'Pneumonia'

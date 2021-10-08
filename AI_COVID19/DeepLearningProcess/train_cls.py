@@ -151,11 +151,14 @@ class TrainCLS:
                 logger.info('')
                 log_save_path = os.path.join(save_path, 'log_{}'.format(self.train_mode))
                 daio.path_builder(log_save_path)
-                callback_list = [keras.callbacks.EarlyStopping(monitor='val_' + self.Step3_param['metric'][0], patience=20, mode='max'),
+                callback_list = [keras.callbacks.EarlyStopping(monitor=self.Step4_param['erl_stop_mon'], 
+                                                               patience=self.Step4_param['erl_stop_pat'], 
+                                                               mode=self.Step4_param['erl_stop_mode']),
                                  keras.callbacks.ModelCheckpoint(
                                      filepath=os.path.join(save_path, title + '_model.h5'),
                                      monitor='val_' + self.Step3_param['metric'][0], save_best_only=True, mode='max'),
-                                 keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, mode='min')]
+                                 keras.callbacks.ReduceLROnPlateau(monitor=self.Step4_param['redLR_mon'], factor=self.Step4_param['redLR_fac'], 
+                                                                   patience=self.Step4_param['redLR_pat'], mode=self.Step4_param['redLR_mode'])]
                 # keras.callbacks.TensorBoard(log_dir=log_save_path, histogram_freq=1, embeddings_freq=1)
 
                 history = model.fit(train_x, train_y, batch_size=self.Step4_param['batch'],
